@@ -1,3 +1,4 @@
+import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-cart.services';
 import { RestaurantsService } from './restaurantes/restaurants.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -34,7 +35,7 @@ import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component'
     ReviewsComponent
   ],
   imports: [BrowserModule, HttpModule, RouterModule.forRoot(ROUTES)],
-  providers: [RestaurantsService],
+  providers: [RestaurantsService, ShoppingCartService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
