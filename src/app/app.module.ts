@@ -1,3 +1,4 @@
+import { SharedModule } from './shared/shared.module';
 import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-cart.services';
 import { RestaurantsService } from './restaurantes/restaurants.service';
 import { BrowserModule } from '@angular/platform-browser';
@@ -10,7 +11,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { RestaurantComponent } from './restaurantes/restaurant/restaurant.component';
 import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail.component';
@@ -18,13 +18,8 @@ import { MenuComponent } from './restaurant-detail/menu/menu.component';
 import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shopping-cart.component';
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
-import { OrderComponent } from './order/order.component';
-import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
-import { InputComponent } from './shared/input/input.component';
-import { RadioComponent } from './shared/radio/radio.component';
-import { OrderItemsComponent } from './order/order-items/order-items.component';
+import { FormBuilder } from '@angular/forms';
 import { OrderService } from './order/order.service';
-import { DeliveryCostsComponent } from './order/delivery-costs/delivery-costs.component';
 
 @NgModule({
   declarations: [
@@ -32,26 +27,19 @@ import { DeliveryCostsComponent } from './order/delivery-costs/delivery-costs.co
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    AboutComponent,
     RestaurantesComponent,
     RestaurantComponent,
     RestaurantDetailComponent,
     MenuComponent,
     ShoppingCartComponent,
     MenuItemComponent,
-    ReviewsComponent,
-    OrderComponent,
-    InputComponent,
-    RadioComponent,
-    OrderItemsComponent,
-    DeliveryCostsComponent
+    ReviewsComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(ROUTES),
-    FormsModule,
-    ReactiveFormsModule
+    SharedModule /*nele ja importo e re-importo FormsModule e ReactiveFormsModule */
   ],
   providers: [
     RestaurantsService,
