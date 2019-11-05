@@ -1,12 +1,12 @@
-import { SharedModule } from './shared/shared.module';
-import { ShoppingCartService } from './restaurant-detail/shopping-cart/shopping-cart.services';
-import { RestaurantsService } from './restaurantes/restaurants.service';
+import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
 import { ROUTES } from './app.routes';
+
+import { SharedModule } from './shared/shared.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
@@ -19,7 +19,6 @@ import { ShoppingCartComponent } from './restaurant-detail/shopping-cart/shoppin
 import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.component';
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 import { FormBuilder } from '@angular/forms';
-import { OrderService } from './order/order.service';
 
 @NgModule({
   declarations: [
@@ -39,13 +38,16 @@ import { OrderService } from './order/order.service';
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(ROUTES),
-    SharedModule /*nele ja importo e re-importo FormsModule e ReactiveFormsModule */
+    SharedModule, /*nele ja importo e re-importo FormsModule e ReactiveFormsModule */
+    CoreModule /* importei CoreModule pq ele tem o providers de todos os services abaixo comentados*/
   ],
   providers: [
-    RestaurantsService,
-    ShoppingCartService,
+    // RestaurantsService,
+    // ShoppingCartService,
+    // OrderService,
+
+
     { provide: LOCALE_ID, useValue: 'pt-BR' },
-    OrderService,
     FormBuilder
   ],
   bootstrap: [AppComponent]

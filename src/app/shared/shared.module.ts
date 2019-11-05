@@ -1,4 +1,5 @@
-import { NgModule } from "@angular/core";
+import { SharedModule } from './shared.module';
+import { NgModule, ModuleWithProviders } from "@angular/core";
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RatingComponent } from './rating/rating.component';
@@ -14,5 +15,10 @@ import { CommonModule } from "@angular/common";
     CommonModule, FormsModule, ReactiveFormsModule]
 })
 export class SharedModule {
-
+  static forRoot(): ModuleWithProviders {
+    return {
+      ngModule: SharedModule,
+      providers: []
+    }
+  }
 }
