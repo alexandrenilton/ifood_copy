@@ -36,6 +36,20 @@ Expressões regulares usadas na validação de formulários
 
 `/^[0-9]*$/`
 
+## Deploy on Apache
+https://angular.io/docs/ts/latest/guide/deployment.html
+
+Apache: add a rewrite rule to the .htaccess file as shown (https://ngmilk.rocks/2015/03/09/angularjs-html5-mode-or-pretty-urls-on-apache-using-htaccess/):
+````
+RewriteEngine On
+# If an existing asset or directory is requested go to it as it is
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -f [OR]
+RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI} -d
+RewriteRule ^ - [L]
+# If the requested resource doesn't exist, use index.html
+RewriteRule ^ /index.html
+```
+
 ## Upgrade para Angular 4.3
 
 Dependências dos pacotes que devem ficar em package.json:

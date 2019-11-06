@@ -22,6 +22,7 @@ import { MenuItemComponent } from './restaurant-detail/menu-item/menu-item.compo
 import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component';
 import { FormBuilder } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,9 @@ import { NotFoundComponent } from './not-found/not-found.component';
     // RestaurantsService,
     // ShoppingCartService,
     // OrderService,
-
+    /** usar estrategia # localhost:8080/#/ para suportar browser http simples
+        para entrrar com URL e ele nao se perder (404) */
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
 
     { provide: LOCALE_ID, useValue: 'pt-BR' },
     FormBuilder,
