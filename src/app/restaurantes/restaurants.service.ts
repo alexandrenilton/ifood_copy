@@ -1,6 +1,7 @@
 import { MenuItem } from './../restaurant-detail/menu-item/menu-item.model';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/switchMap';
 
 import { Restaurant } from './restaurant/restaurant.model';
 import { Injectable } from '@angular/core';
@@ -12,11 +13,11 @@ import { MEAT_API } from './../app.api';
 
 @Injectable() /* pois vai receber o servido Http do angular*/
 export class RestaurantsService {
-  constructor(private http: Http) {}
+  constructor(private http: Http) { }
 
-  restaurants(): Observable<Restaurant[]> {
+  restaurants(search?: string): Observable<Restaurant[]> {
     return this.http
-      .get(`${MEAT_API}/restaurants`)
+      .get(`${MEAT_API}/restaurants`, { params: { q: search } }) /* q eh uma key word pra dizer q vc quer pesquisar em todos os campos */
       .map(response => response.json())
       .catch(ErrorHandler.handleError);
   }
