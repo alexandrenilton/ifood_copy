@@ -2,7 +2,7 @@ import { NotificationService } from './shared/messages/notification.service';
 import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -42,7 +42,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    HttpModule,
+    HttpClientModule,
     RouterModule.forRoot(ROUTES),
     SharedModule, /*nele ja importo e re-importo FormsModule e ReactiveFormsModule */
     CoreModule, /* importei CoreModule pq ele tem o providers de todos os services abaixo comentados*/
