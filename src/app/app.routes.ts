@@ -1,3 +1,4 @@
+import { LoginComponent } from './security/login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { Routes } from '@angular/router';
 
@@ -9,6 +10,10 @@ import { RestaurantDetailComponent } from './restaurant-detail/restaurant-detail
 
 export const ROUTES: Routes = [
   { path: '', component: HomeComponent },
+
+  // security package
+  { path: 'login', component: LoginComponent },
+
   { path: 'home', component: HomeComponent },
 
   // { path: 'about', component: AboutComponent },

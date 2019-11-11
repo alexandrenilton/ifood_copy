@@ -1,3 +1,4 @@
+import { LoginService } from './security/login/login.service';
 import { NotificationService } from './shared/messages/notification.service';
 import { CoreModule } from './core/core.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -23,6 +24,7 @@ import { ReviewsComponent } from './restaurant-detail/reviews/reviews.component'
 import { FormBuilder } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import { LoginComponent } from './security/login/login.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,8 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     ShoppingCartComponent,
     MenuItemComponent,
     ReviewsComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -53,11 +56,12 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
     // OrderService,
     /** usar estrategia # localhost:8080/#/ para suportar browser http simples
         para entrrar com URL e ele nao se perder (404) */
-    { provide: LocationStrategy, useClass: HashLocationStrategy },
+    // { provide: LocationStrategy, useClass: HashLocationStrategy },
 
     { provide: LOCALE_ID, useValue: 'pt-BR' },
     FormBuilder,
-    NotificationService
+    NotificationService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })

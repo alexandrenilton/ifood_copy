@@ -15,15 +15,16 @@ export class InputComponent implements OnInit, AfterContentInit {
   @Input() okMessage = 'Ok';
   @Input() errorMessage: string;
   @Input() label: string;
+  @Input() showTip: boolean = true;
 
   /** referencia que vai ser pega */
   @ContentChild(NgModel) model: NgModel;
   @ContentChild(FormControlName) control: FormControlName;
 
   input: any;
-  constructor() {}
+  constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   /* chamado qd o conteudo for definido, o conteudo que ficará em NgContent*/
   ngAfterContentInit() {
