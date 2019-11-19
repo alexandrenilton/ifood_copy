@@ -25,6 +25,8 @@ export class OrderComponent implements OnInit {
     { label: 'Cartão Refeição - Sodexo', value: 'SODEXO' }
   ];
 
+  orderId: string;
+
   static equalsTo(group: AbstractControl): { [key: string]: boolean } {
     const email = group.get('email');
     const emailConfirmation = group.get('emailConfirmation');
@@ -87,10 +89,18 @@ export class OrderComponent implements OnInit {
     order.orderItems = this.cartItems().map(
       (item: CartItem) => new OrderItem(item.quantity, item.menuItem.id)
     );
-    this.orderService.checkOrder(order).subscribe((orderId: string) => {
-      this.router.navigate(['/order-summary']);
-      this.orderService.clear();
-    });
+    this.orderService.checkOrder(order)
+      .do((orderId: string) => {
+        this.orderId = orderId;
+      })
+      .subscribe((orderId: string) => {
+        this.router.navigate(['/order-summary']);
+        this.orderService.clear();
+      });
     console.log(order);
+  }
+
+  isOrderCompleted(): boolean {
+    return this.orderId !== undefined;
   }
 }

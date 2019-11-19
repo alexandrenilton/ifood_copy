@@ -1,9 +1,10 @@
+import { LoggedInGuard } from './../security/loggedin.guard';
 import { NotificationService } from './messages/notification.service';
 import { OrderService } from './../order/order.service';
 import { RestaurantsService } from './../restaurantes/restaurants.service';
 import { ShoppingCartService } from 'app/restaurant-detail/shopping-cart/shopping-cart.services';
-import { NgModule, ModuleWithProviders } from "@angular/core";
-import { CommonModule } from "@angular/common";
+import { NgModule, ModuleWithProviders } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { RatingComponent } from './rating/rating.component';
@@ -28,7 +29,6 @@ export class SharedModule {
         RestaurantsService,
         OrderService,
         NotificationService]
-
     }
   }
 }

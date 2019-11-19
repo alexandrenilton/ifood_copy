@@ -1,3 +1,5 @@
+import { LeaveOrderGuard } from './order/leave-order.guard';
+import { LoggedInGuard } from './security/loggedin.guard';
 import { LoginService } from './security/login/login.service';
 import { NotificationService } from './shared/messages/notification.service';
 import { CoreModule } from './core/core.module';
@@ -25,6 +27,7 @@ import { FormBuilder } from '@angular/forms';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { LoginComponent } from './security/login/login.component';
+import { UserDetailComponent } from './header/user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +43,8 @@ import { LoginComponent } from './security/login/login.component';
     MenuItemComponent,
     ReviewsComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -61,7 +65,9 @@ import { LoginComponent } from './security/login/login.component';
     { provide: LOCALE_ID, useValue: 'pt-BR' },
     FormBuilder,
     NotificationService,
-    LoginService
+    LoginService,
+    LoggedInGuard,
+    LeaveOrderGuard
   ],
   bootstrap: [AppComponent]
 })
