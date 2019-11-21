@@ -17,7 +17,7 @@ export const ROUTES: Routes = [
   { path: 'home', component: HomeComponent },
   // { path: 'about', component: AboutComponent },
   /* fazendo lazy-loading para about*/
-  { path: 'about', loadChildren: './about/about.module.ts#AboutModule' },
+  { path: 'about', loadChildren: './about/about.module#AboutModule' },
   {
     path: 'restaurantes/:id',
     component: RestaurantDetailComponent,
@@ -29,7 +29,7 @@ export const ROUTES: Routes = [
   { path: 'restaurantes', component: RestaurantesComponent },
   /** guarda de rotas... */
   {
-    path: 'order', loadChildren: './order/order.module.ts#OrderModule',
+    path: 'order', loadChildren: './order/order.module#OrderModule',
     canLoad: [LoggedInGuard], canActivate: [LoggedInGuard]
   },
   // { path: 'order-sumary', component: OrderSumaryComponent},

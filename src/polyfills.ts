@@ -19,8 +19,8 @@ import 'core-js/es7/reflect';
 import 'zone.js/dist/zone';
 
 // incluir o intl e script pra conversao
-import 'intl';
-import 'intl/locale-data/jsonp/pt-BR.js';
+// import 'intl';
+// import 'intl/locale-data/jsonp/pt-BR.js';
 
 // import web-animations
 import 'web-animations-js/web-animations.min.js';

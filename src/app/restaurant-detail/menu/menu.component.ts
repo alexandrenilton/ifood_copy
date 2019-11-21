@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit, EventEmitter } from '@angular/core';
 
@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
   constructor(
     private restaurantsService: RestaurantsService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.menu = this.restaurantsService.menuOfRestaurant(

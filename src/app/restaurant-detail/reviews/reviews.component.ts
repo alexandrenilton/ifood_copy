@@ -1,4 +1,4 @@
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { RestaurantsService } from './../../restaurantes/restaurants.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -13,7 +13,7 @@ export class ReviewsComponent implements OnInit {
   constructor(
     private restaurantsService: RestaurantsService,
     private route: ActivatedRoute
-  ) {}
+  ) { }
 
   ngOnInit() {
     /** acessar o params do parent da route */
